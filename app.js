@@ -1,4 +1,4 @@
-var express = require("express");
+/*var express = require("express");
 var app = express();
 app.use(express.logger());
 
@@ -9,6 +9,16 @@ app.get('/', function(request, response) {
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
   console.log("Listening on " + port);
+}); */
+
+
+$(document).ready(function() {
+	createStoryJS({
+		width: window.innerWidth,
+		height: window.innerHeight,
+		source: 'http://content.guardianapis.com/search?q=nsa&tag=tone%2Fnews%2C+type%2Farticle&section=world&from-date=2013-06-01&page-size=30&order-by=relevance&show-fields=headline%2Cstandfirst%2Cthumbnail&ids=world%2Fthe-nsa-files&date-id=date%2F2013&api-key=8xgymsddbs3r5tzvu2gd2kzz?callback=?',
+		embed_id: "my-timeline" 
+	});
 });
 
 //creating timeline object
@@ -58,14 +68,3 @@ var populateTimeline = (function() {
 	};
 })();
 	
-//don't load timeline until data has been populated	
-$.when(
-	populateTimeline.youtube()
-).then(function() {
-	createStoryJS({
-		width: window.innerWidth,
-		height: window.innerHeight,
-		source: 'http://content.guardianapis.com/search?date-id=date%2F2013'
-		embed_id: 'my-timeline'
-	});
-});
