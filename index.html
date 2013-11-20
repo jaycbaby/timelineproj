@@ -5,10 +5,19 @@
 	<title>NSA Timeline</title>
 	<script type="text/javascript" src="timeline/js/storyjs-embed.js"></script>
 	<script src="timeline/lib/jquery-min.js"></script>
-	
 </head>
 <body>
-	<section id="my-timeline"></section>
 	<script src="app.js"></script>
+	<script> 
+	//this will retrieve the JSON data from The Guardian
+	  	$.ajax({
+	    url: "http://content.guardianapis.com/search?q=nsa&tag=tone%2Fnews%2C+type%2Farticle&section=world&from-date=2013-06-01&page-size=30&order-by=relevance&show-fields=headline%2Cstandfirst%2Cthumbnail&ids=world%2Fthe-nsa-files&date-id=date%2F2013&api-key=8xgymsddbs3r5tzvu2gd2kzz&callback=jsoncallback",
+	    dataType: "jsonp"
+		});
+		function jsoncallback(res){
+		console.log(res);
+		}
+	</script>
+	<section id="my-timeline"></section>
 </body>
 </html>

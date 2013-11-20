@@ -12,28 +12,54 @@ app.listen(port, function() {
 }); */
 
 
-$(document).ready(function() {
-	createStoryJS({
-		width: window.innerWidth,
-		height: window.innerHeight,
-		source: 'http://content.guardianapis.com/search?q=nsa&tag=tone%2Fnews%2C+type%2Farticle&section=world&from-date=2013-06-01&page-size=30&order-by=relevance&show-fields=headline%2Cstandfirst%2Cthumbnail&ids=world%2Fthe-nsa-files&date-id=date%2F2013&api-key=8xgymsddbs3r5tzvu2gd2kzz?callback=?',
-		embed_id: "my-timeline" 
-	});
+$(document).ready(function () {
+    var dataObject = {
+        "timeline": {
+            "headline": "Test",
+                "type": "default",
+                "text": "Text",
+                "startDate": "2012,1,26",
+                "date": [{
+                "startDate": "2011,12,12",
+                    "endDate": "2012,1,27",
+                    "headline": "Headline2",
+                    "text": "<p></p>",
+                    "asset": {
+                    "media": "  ",
+                        "credit": "",
+                        "caption": ""
+                }
+            }, {
+                "startDate": "2012,1,26",
+                    "endDate": "2012,1,27",
+                    "headline": " ",
+                    "text": "<p>this is text.</p>",
+                    "asset": {
+                    "media": "http://youtu.be/u4XpeU9erbg",
+                        "credit": "",
+                        "caption": ""
+                }
+            }]
+        }
+    };
+
+    createStoryJS({
+        type: 'timeline',
+        width: '800',
+        height: '600',
+        source: dataObject,
+        embed_id: 'my-timeline'
+    });
 });
+	//initializing new timeline
 
-//creating timeline object
-var timeline = {
-	"timeline": {
-		"headline":"",
-		"type":"default",
-		"text":"This is a collection",
-		"date": []
-	}
-};
 
+
+/*
 var populateTimeline = (function() {
 
 //test Youtube data
+
 	function youtube() {
 		$.get('https://gdata.youtube.com/feeds/api/users/nitesshadow/favorites?alt=json', function(data) {
 			for (var i=0; i < data.feed.entry.length; i++) {
@@ -66,5 +92,18 @@ var populateTimeline = (function() {
 	return {
 		youtube: youtube
 	};
-})();
-	
+
+}); 
+
+$.when(
+	populateTimeline.youtube()
+).then(function() {
+	createStoryJS({
+		width: window.innerWidth,
+		height: window.innerHeight,
+		source: 'js/guardiandata.jsonp',
+		embed_id: 'my-timeline'
+	});
+}
+);
+*/
