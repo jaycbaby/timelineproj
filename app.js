@@ -1,4 +1,4 @@
-/*var express = require("express");
+/*var express = require("express"
 var app = express();
 app.use(express.logger());
 
@@ -13,25 +13,27 @@ app.listen(port, function() {
 
 
 $(document).ready(function () {
-    var dataObject = {
+    //JSONP timeline object will store JSON fetched from The Guardian API
+    var jsonp = {
         "timeline": {
-            "headline": "Test",
+            "headline": "NSA Revelations",
                 "type": "default",
-                "text": "Text",
-                "startDate": "2012,1,26",
-                "date": [{
-                "startDate": "2011,12,12",
-                    "endDate": "2012,1,27",
-                    "headline": "Headline2",
-                    "text": "<p></p>",
+                "text": "This is an overview of the NSA events...",
+                "startDate": " ",
+                "date": [
+                {
+                "startDate": "2012,12,12",
+                    "endDate": "",
+                    "headline": "Headline",
+                    "text": "<p>The Guardian standfirst</p>",
                     "asset": {
-                    "media": "  ",
+                    "media": "News thumbnail",
                         "credit": "",
                         "caption": ""
                 }
             }, {
-                "startDate": "2012,1,26",
-                    "endDate": "2012,1,27",
+                "startDate": "2013,1,26",
+                    "endDate": "",
                     "headline": " ",
                     "text": "<p>this is text.</p>",
                     "asset": {
@@ -43,16 +45,29 @@ $(document).ready(function () {
         }
     };
 
+    //TimelineJS 
     createStoryJS({
         type: 'timeline',
         width: '800',
         height: '600',
-        source: dataObject,
+        source: jsonp,
         embed_id: 'my-timeline'
     });
 });
-	//initializing new timeline
 
+  	$.ajax({
+	    url: "http://content.guardianapis.com/search?q=nsa&tag=tone%2Fnews%2C+type%2Farticle&section=world&from-date=2013-06-01&page-size=30&order-by=relevance&show-fields=headline%2Cstandfirst%2Cthumbnail&ids=world%2Fthe-nsa-files&date-id=date%2F2013&api-key=8xgymsddbs3r5tzvu2gd2kzz&callback=jsoncallback",
+	    dataType: "jsonp"
+	});
+	function jsoncallback(res){
+	console.log(res);
+	}
+
+  	//populating jsonp variable
+  	function populate(){
+  	}
+
+	
 
 
 /*
