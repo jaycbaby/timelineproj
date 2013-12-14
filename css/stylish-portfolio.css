@@ -10,6 +10,8 @@ body {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
+  color: white;
+  font-family: ZXXFalse; 
 }
 
 .vert-text h1 {
@@ -17,6 +19,23 @@ body {
   margin: 0;
   font-size: 4.5em;
   font-weight: 700;
+}
+
+#logo {
+  width: 10%;
+  height: 10%;
+}
+
+.vert-text h3 {
+  padding: 0;
+  margin: 0;
+  font-size: 5em;
+  font-weight: 700;
+  font-family: ZXXFalse; 
+}
+
+.vert-text p {
+  font-size: 1.5em;
 }
 
 /* Side Menu */
@@ -111,7 +130,7 @@ body {
   height: 100%;
   width: 100%;
   position: relative;
-  background: url(../img/bg.jpg) no-repeat center center fixed; 
+  background: url(../img/hq.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -155,7 +174,7 @@ i.service-icon {
   display: table;
   height: 400px;
   width: 100%;
-  background: url(../img/callout.jpg) no-repeat center center fixed; 
+  background: url(../img/keith.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -222,11 +241,11 @@ i.scroll:hover {
 @media (max-width: 768px) {
 	
   .header {
-	background: url(../img/bg.jpg) no-repeat center center scroll; 
+	background: url(../img/nsa_eye.jpg) no-repeat center center scroll; 
   }
 
   .callout {
-	background: url(../img/callout.jpg) no-repeat center center scroll; 
+	background: url(../img/nsa_eye.jpg) no-repeat center center scroll; 
   }
 
   .map {
